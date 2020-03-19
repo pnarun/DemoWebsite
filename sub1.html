@@ -1,0 +1,93 @@
+<html>
+
+<head>
+    <title>BMI</title>
+    <link rel="stylesheet" type="text/css" href="style4.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+
+</head>
+
+<body>
+    <div class="topbar container-fluid">
+        <div class="head">
+            <h4>
+            </h4><br>
+            <h1>
+                <bold>BODY MASS INDEX(BMI) <br> CALCULATOR</bold>
+            </h1>
+        </div>
+    </div>
+    <div class="content">
+        <h1>
+            <bold>How to calculate Body Mass Index</bold>
+        </h1> <br>
+        <p>Body Mass Index is a simple calculation using a person’s height and weight. The formula is BMI = kg/m2 where
+            kg is a person’s weight in kilograms and m2 is their height in metres squared.<br><br>
+            A BMI of 25.0 or more is overweight, while the healthy range is 18.5 to 24.9. BMI applies to most adults
+            18-65 years.</p><br><br>
+
+        <h1>
+            <bold>Who shouldn't use a BMI calculator</bold>
+        </h1><br>
+        <p>BMI is not used for muscle builders, long distance athletes, pregnant women, the elderly or young children.
+            This is because BMI does not take into account whether the weight is carried as muscle or fat, just the
+            number. Those with a higher muscle mass, such as athletes, may have a high BMI but not be at greater health
+            risk. Those with a lower muscle mass, such as children who have not completed their growth or the elderly
+            who may be losing some muscle mass may have a lower BMI.During pregnancy and lactation, a woman's body
+            composition changes, so using BMI is not appropriate. <br><br>
+
+
+        </p><br><br>
+        <div class="hg">
+            <h1>Calculate your Body Mass Index</h1>
+        </div>
+
+        <div class="input container">
+            <p class="texxt"> BMI = KG / (H/100 * H/100) </p>
+            <p class="text1"> Height in CM : </p>
+            <p><input type="text" id="cm"></p>
+            <p class="text1"> Weight in KG :</p class="text1">
+            <p> <input type="text" id="kg"></p>
+            <input class="btn btn-info" type="submit" id="submit" value="Submit"><br> <br>
+
+            <p class="texxt"> Under Weight = Less than 18.6 <br>
+                Normal Range = 18.6 and 24.9 <br>
+                Overweight = Greater than 24.9
+            </p>
+            <div class="text2">Your result is :</div>
+            <div id="result"></div>
+            
+        </div>
+
+        <div><center><h1>GET YOUR DIET AND EXERCISE PLANS NOW!!</h1><br> <a href ="extra.html">          <input class="btn btn-info" type="button" id="Under weight" value="Under Weight"></a>  <br><br>
+            <a href ="extra.html"> <input class ="btn btn-info" type="button" id="over weight" value ="Over Weight"></a></center>
+</div>
+        <script>
+            document.getElementById("submit").addEventListener("click", bmiCalculator);
+            function bmiCalculator() {
+                var cm = parseInt(document.getElementById("cm").value);
+                var kg = parseFloat(document.getElementById("kg").value);
+                if (isNaN(cm) || isNaN(kg)) {
+                    alert("invalid input");
+                }
+                else {
+                    var bmi;
+                    var newCm = parseFloat(cm / 100);
+
+                    bmi = kg / (newCm * newCm);
+                    bmi = bmi.toFixed(1);
+                    console.log(bmi);
+
+                    document.getElementById("result").innerHTML = bmi;
+                }
+                if(bmi<18.6)
+                    alert("underweight");
+                else if(bmi>18.6 && bmi<24.9)
+                    alert("normal range");
+                else 
+                    alert("overweight");
+            }
+        </script><br><center> <a href="main1.html"><input class ="btn btn-info" type="button" value="Go Back"></a></center> 
+</body>
+
+</html>
